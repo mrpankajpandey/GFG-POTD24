@@ -1,0 +1,30 @@
+/*
+Author : Siyal02
+Date : 27/04/2024
+Problem : merge sort on doubly linked list difficulty is medium
+Difficulty : Medium
+Problem Link : https://www.geeksforgeeks.org/problems/merge-sort-on-doubly-linked-list/1Video Solution : NA
+*/
+
+
+class Solution {
+  public:
+    // Function to sort the given doubly linked list using Merge Sort.
+    struct Node *sortDoubly(struct Node *head) {
+     vector<int> num;
+        struct Node *temp = head;
+        while(temp != NULL){
+            num.push_back(temp->data);
+            temp = temp->next;
+        }
+        sort(num.begin(),num.end());
+        
+        temp = head;
+        int ind = 0;
+        while(temp){
+            temp->data = num[ind++];
+            temp = temp->next;
+        }
+        return head;
+    }
+};
